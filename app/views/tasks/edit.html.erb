@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <%= link_to task_path(@task), class: "btn btn-outline-secondary mb-4" do %>
+    <i class="fas fa-arrow-left"></i> Voir les détails
+  <% end %>
+
+  <div class="form-container">
+    <h2 class="mb-4"><i class="fas fa-edit"></i> Modifier la tâche : <%= @task.title %></h2>
+
+    <%= form_with model: @task do |form| %>
+      <div class="mb-3">
+        <%= form.label :title, "Titre", class: "form-label" %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :details, "Détails", class: "form-label" %>
+        <%= form.text_area :details, class: 'form-control', rows: 5 %>
+      </div>
+
+      <div class="form-check mb-4">
+        <%= form.check_box :completed, class: 'form-check-input' %>
+        <%= form.label :completed, class: 'form-check-label' do %>
+          <i class="fas fa-check-circle text-success"></i> Tâche terminée
+        <% end %>
+      </div>
+
+      <div class="d-flex gap-2">
+        <%= form.submit "Mettre à jour", class: 'btn btn-primary' %>
+        <%= link_to "Annuler", task_path(@task), class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

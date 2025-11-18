@@ -1,0 +1,30 @@
+<div class="container my-5">
+  <%= link_to tasks_path, class: "btn btn-outline-secondary mb-4" do %>
+    <i class="fas fa-arrow-left"></i> Retour à la liste
+  <% end %>
+
+  <div class="task-card">
+    <div class="text-center mb-4">
+      <i class="task-status-icon <%= @task.completed ? 'fas fa-check-circle completed' : 'far fa-circle incomplete' %>"></i>
+      <h2 class="<%= 'text-decoration-line-through text-muted' if @task.completed %>">
+        <%= @task.title %>
+      </h2>
+      <span class="status-badge <%= @task.completed ? 'completed' : 'incomplete' %>">
+        <%= @task.completed ? '✅ Tâche terminée !' : '❌ Tâche en cours...' %>
+      </span>
+    </div>
+
+    <% if @task.details.present? %>
+      <hr>
+      <h5><i class="fas fa-align-left"></i> Détails</h5>
+      <p class="text-muted"><%= simple_format(@task.details) %></p>
+    <% end %>
+
+    <hr>
+    <div class="action-links">
+      <%= link_to edit_task_path(@task) do %>
+        <i class="fas fa-edit"></i> Modifier cette tâche
+      <% end %>
+    </div>
+  </div>
+</div>
