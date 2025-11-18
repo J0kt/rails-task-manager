@@ -1,66 +1,101 @@
 body {
+  /* Sets a very light grey background color for the entire page. */
   background-color: #f8f9fa;
+  /* Defines a clean, sans-serif font stack for text. */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* This class is used to center content and limit its maximum width, providing a readable layout. */
 .container {
+  /* Sets the maximum width of the container to 900 pixels. */
   max-width: 900px;
 }
 
 .task-header {
+  /* Applies a gradient background to the header from a blue to a purple. */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Sets the text color within the header to white. */
   color: white;
+  /* Adds 2rem of padding all around the header content. */
   padding: 2rem;
   border-radius: 10px;
+  /* Adds 2rem of space below the header. */
   margin-bottom: 2rem;
+  /* Adds a subtle shadow for depth: 0 horizontal, 4px vertical, 6px blur, 10% black opacity. */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .task-header h1 {
+  /* Removes default margin from the h1 tag. */
   margin: 0;
   font-weight: 700;
 }
 
 .task-list {
+  /* Removes bullet points from the list items. */
   list-style: none;
+  /* Removes default padding from the list. */
   padding: 0;
+  /* Removes default margin from the list. */
   margin: 0;
 }
 
 .task-item {
   background: white;
+  /* Rounds the corners of the task item by 8 pixels. */
   border-radius: 8px;
+  /* Adds 1.25rem of padding inside the task item. */
   padding: 1.25rem;
+  /* Adds 1rem of space below each task item. */
   margin-bottom: 1rem;
+  /* Adds a subtle shadow. */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  /* Smooth transition for all properties over 0.3 seconds. */
   transition: all 0.3s ease;
+  /* Uses flexbox for layout, allowing items inside to align easily. */
   display: flex;
+  /* Vertically centers items within the flex container. */
   align-items: center;
+  /* Adds 1rem of space between flex items (e.g., checkbox and title). */
   gap: 1rem;
+  /* Removes underline from the link. */
   text-decoration: none;
+  /* Inherits the color from its parent, preventing default link color. */
   color: inherit;
 }
 
 .task-item:hover {
+  /* Lifts the item slightly by 2 pixels vertically. */
   transform: translateY(-2px);
+  /* Enhances the shadow on hover for a "pop" effect. */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .task-item.completed {
+  /* Makes completed tasks slightly transparent. */
   opacity: 0.7;
+  /* Changes background to a lighter grey for completed tasks. */
   background: #f8f9fa;
 }
 
+/* Ensures the checkbox area behaves like a clickable link. */
 .task-checkbox-link {
+  /* Removes underline from the link. */
   text-decoration: none;
+  /* Uses flexbox to align content within the link. */
   display: flex;
+  /* Vertically centers items within the flex container. */
   align-items: center;
 }
 
 .task-checkbox {
+  /* Sets the size of the checkbox icon to 2rem. */
   font-size: 2rem;
+  /* Prevents the checkbox from shrinking if content is too wide. */
   flex-shrink: 0;
+  /* Smooth transition for transform properties over 0.2 seconds. */
   transition: transform 0.2s ease;
+  /* Changes cursor to a pointer to indicate it's clickable. */
   cursor: pointer;
 }
 
@@ -68,208 +103,296 @@ body {
   color: #28a745;
 }
 
+/* Grey color for incomplete checkboxes. */
 .task-checkbox.incomplete {
   color: #6c757d;
 }
 
+/* Enlarges the checkbox icon by 20% on hover. */
 .task-checkbox-link:hover .task-checkbox {
   transform: scale(1.2);
 }
 
+/* Shrinks the checkbox slightly when clicked. */
 .task-checkbox:active {
   transform: scale(0.95);
 }
 
+/* Allows this element to grow and take up remaining space in the flex container. */
 .task-content {
   flex-grow: 1;
 }
 
 .task-title {
+  /* Sets margins: top 0, right 0, bottom 0.25rem, left 0. */
   margin: 0 0 0.25rem 0;
+  /* Sets the font size of the title. */
   font-size: 1.25rem;
+  /* Makes the title semi-bold. */
   font-weight: 600;
+  /* Sets a dark blue-grey color for the title. */
   color: #2c3e50;
 }
 
 .task-item.completed .task-title {
+  /* Adds a strikethrough line to completed task titles. */
   text-decoration: line-through;
+  /* Changes the color to a lighter grey for completed task titles. */
   color: #6c757d;
 }
 
 .task-details {
   margin: 0;
   color: #6c757d;
+  /* Makes the font slightly smaller. */
   font-size: 0.9rem;
 }
 
 .task-card {
+  /* White background for the card. */
   background: white;
+  /* Rounded corners for the card. */
   border-radius: 12px;
+  /* Generous padding inside the card. */
   padding: 2rem;
+  /* Subtle shadow for the card. */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Space below the card. */
   margin-bottom: 2rem;
 }
 
 .task-status-icon {
+  /* Large icon size for the status icon. */
   font-size: 3rem;
+  /* Space below the icon. */
   margin-bottom: 1rem;
 }
 
 .task-status-icon.completed {
+  /* Green color for completed status icons. */
   color: #28a745;
 }
 
 .task-status-icon.incomplete {
+  /* Amber/yellow color for incomplete status icons. */
   color: #ffc107;
 }
 
 .status-badge {
+  /* Allows padding and margin, but stays in line with text. */
   display: inline-block;
+  /* Padding inside the badge. */
   padding: 0.35rem 0.75rem;
+  /* Highly rounded corners for a pill shape. */
   border-radius: 20px;
+  /* Slightly smaller font size for the badge. */
   font-size: 0.85rem;
+  /* Semi-bold font weight. */
   font-weight: 600;
+  /* Space above the badge. */
   margin-top: 0.5rem;
 }
 
 .status-badge.completed {
+  /* Light green background for completed badges. */
   background: #d4edda;
+  /* Darker green text for completed badges. */
   color: #155724;
 }
 
 .status-badge.incomplete {
+  /* Light yellow background for incomplete badges. */
   background: #fff3cd;
+  /* Darker yellow/brown text for incomplete badges. */
   color: #856404;
 }
 
 .btn-custom {
+  /* Padding inside the button. */
   padding: 0.6rem 1.5rem;
+  /* Rounded corners for the button. */
   border-radius: 8px;
+  /* Semi-bold text. */
   font-weight: 600;
+  /* Smooth transition for all properties. */
   transition: all 0.3s ease;
+  /* Removes default button border. */
   border: none;
+  /* Changes cursor to pointer on hover. */
   cursor: pointer;
+  /* Uses flexbox for content alignment within the button. */
   display: inline-flex;
+  /* Vertically centers items. */
   align-items: center;
+  /* Space between items (e.g., icon and text). */
   gap: 0.5rem;
 }
 
 .btn-primary-custom {
+  /* Gradient background for primary buttons. */
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* White text color for primary buttons. */
   color: white;
 }
 
 .btn-primary-custom:hover {
+  /* Lifts the button slightly. */
   transform: translateY(-2px);
+  /* Adds a shadow for depth, with a color based on the gradient. */
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .btn-danger-custom {
+  /* Red background color for danger buttons. */
   background: #dc3545;
+  /* White text color for danger buttons. */
   color: white;
 }
 
 .btn-danger-custom:hover {
+  /* Darkens the background color on hover. */
   background: #c82333;
+  /* Lifts the button slightly. */
   transform: translateY(-2px);
 }
 
 .form-container {
   background: white;
+  /* Rounded corners for the form container. */
   border-radius: 12px;
+  /* Generous padding inside the form container. */
   padding: 2rem;
+  /* Subtle shadow for the form container. */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .form-label {
   font-weight: 600;
+  /* Dark blue-grey text color for form labels. */
   color: #2c3e50;
+  /* Space below the label. */
   margin-bottom: 0.5rem;
 }
 
 .form-control {
   border-radius: 8px;
+  /* Light grey border for input fields, 2px thick. */
   border: 2px solid #e9ecef;
+  /* Padding inside the input field. */
   padding: 0.75rem;
+  /* Smooth transition for border color. */
   transition: border-color 0.3s ease;
 }
 
 .form-control:focus {
+  /* Changes border color to blue/purple when focused. */
   border-color: #667eea;
+  /* Adds a light blue glow effect as a shadow. */
   box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
 }
 
 .form-check-input {
+  /* Sets width of the checkbox to 1.5rem. */
   width: 1.5rem;
+  /* Sets height of the checkbox to 1.5rem. */
   height: 1.5rem;
+  /* Removes default top margin. */
   margin-top: 0;
 }
 
 .form-check-label {
   margin-left: 0.5rem;
+  /* Medium font weight. */
   font-weight: 500;
 }
 
 .empty-state {
   text-align: center;
+  /* Generous vertical padding, some horizontal. */
   padding: 3rem 1rem;
+  /* Medium grey text color. */
   color: #6c757d;
 }
 
 .empty-state i {
   font-size: 4rem;
+  /* Space below the icon. */
   margin-bottom: 1rem;
+  /* Makes the icon slightly faded. */
   opacity: 0.5;
 }
 
 .alert-custom {
   border-radius: 8px;
+  /* Removes default border. */
   border: none;
+  /* Padding inside the alert. */
   padding: 1rem 1.5rem;
 }
 
 .action-links {
   display: flex;
+  /* Adds 1rem space between links. */
   gap: 1rem;
+  /* Allows links to wrap to the next line on smaller screens. */
   flex-wrap: wrap;
+  /* Space above the action links. */
   margin-top: 1rem;
 }
 
 .action-links a {
   text-decoration: none;
+  /* Blue/purple color for action links. */
   color: #667eea;
+  /* Medium font weight. */
   font-weight: 500;
+  /* Smooth color transition on hover. */
   transition: color 0.3s ease;
 }
 
 .action-links a:hover {
+  /* Changes color to a darker purple on hover. */
   color: #764ba2;
 }
 
 .delete-link {
+  /* Pushes the link to the right within its flex container. */
   margin-left: auto;
+  /* Sets font size to 1.2rem. */
   font-size: 1.2rem;
+  /* Smooth transform transition. */
   transition: transform 0.2s ease;
+  /* Removes text decoration. */
   text-decoration: none;
 }
 
 .delete-link:hover {
+  /* Enlarges the link by 20% on hover. */
   transform: scale(1.2);
 }
 
+/*
+  Media Queries for Responsive Design
+  Adjusts styles for screens smaller than 768px (e.g., mobile devices).
+*/
 @media (max-width: 768px) {
+  /* Reduces padding of the task header. */
+  /* Styles applied when the screen width is 768px or less. */
   .task-header {
     padding: 1.5rem;
   }
 
+  /* Reduces padding of individual task items. */
   .task-item {
     padding: 1rem;
   }
 
+  /* Reduces the font size of the task checkbox. */
   .task-checkbox {
     font-size: 1.5rem;
   }
 
+  /* Reduces the font size of the task title. */
   .task-title {
     font-size: 1.1rem;
   }

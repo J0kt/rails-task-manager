@@ -1,37 +1,67 @@
+<% # This is the main container div for the page content, applying Bootstrap's 'container' class for responsiveness %>
+<% # and 'my-5' for vertical margin. %>
 <div class="container my-5">
+  <% # This div acts as a header for the task list, styled by the 'task-header' CSS class. %>
   <div class="task-header">
+    <% # This div uses Bootstrap's flex utilities to arrange its content (heading and button) %>
+    <% # to justify space between them and align items vertically in the center. %>
     <div class="d-flex justify-content-between align-items-center">
+      <% # Displays a main heading for the page, including a Font Awesome icon (fa-tasks). %>
       <h1><i class="fas fa-tasks"></i> Toutes mes tâches</h1>
+      <% # Generates a link to the 'new_task_path' (the route for creating a new task). %>
+      <% # It's styled as a light-themed button. %>
       <%= link_to new_task_path, class: "btn btn-light" do %>
+        <% # Displays a Font Awesome plus icon within the button. %>
         <i class="fas fa-plus"></i> Créer une nouvelle tâche
       <% end %>
     </div>
   </div>
 
+  <% # This Ruby conditional checks if the @tasks instance variable (passed from the controller) is empty. %>
   <% if @tasks.empty? %>
+    <% # If @tasks is empty, this div displays an 'empty state' message, styled by 'empty-state'. %>
     <div class="empty-state">
+      <% # Displays a large Font Awesome clipboard icon to visually represent the empty state. %>
       <i class="fas fa-clipboard-list"></i>
+      <% # Displays a paragraph message indicating that no tasks exist yet. %>
       <p>Aucune tâche pour le moment. Créez-en une !</p>
     </div>
   <% else %>
+    <% # If @tasks is NOT empty, this block starts iterating over each task in the @tasks collection. %>
     <% @tasks.each do |task| %>
+      <% # This div represents a single task item. It dynamically adds the 'completed' CSS class %>
+      <% # if the task.completed attribute is true, allowing for conditional styling. %>
       <div class="task-item <%= 'completed' if task.completed %>">
 
+        <% # Generates a link that, when clicked, will toggle the completion status of the task. %>
+        <% # It points to 'toggle_completed_task_path(task)', uses a PATCH HTTP method (Turbo), %>
+        <% # and is styled by 'task-checkbox-link'. %>
         <%= link_to toggle_completed_task_path(task), data: { turbo_method: :patch }, class: 'task-checkbox-link' do %>
+          <% # Displays a Font Awesome icon that dynamically changes based on the task's completion status. %>
+          <% # If completed, it's a solid check circle (fas fa-check-circle) in green. %>
+          <% # If incomplete, it's an outline circle (far fa-circle) in grey. %>
           <i class="task-checkbox <%= task.completed ? 'fas fa-check-circle completed' : 'far fa-circle incomplete' %>"></i>
         <% end %>
 
+        <% # This div contains the main content of the task (title), allowing it to grow in flex layout. %>
         <div class="task-content">
+          <% # Generates a link to the task's show page ('task_path(task)'). %>
+          <% # It removes text decoration and inherits color to blend with the surrounding text. %>
           <%= link_to task_path(task), style: 'text-decoration: none; color: inherit;' do %>
+            <% # Displays the task's title as a heading, styled by 'task-title'. %>
             <h5 class="task-title"><%= task.title %></h5>
           <% end %>
         </div>
 
+        <% # Generates a link for deleting the task. It points to 'task_path(task)'. %>
+        <% # It uses a 'delete-link' CSS class, specifies a DELETE HTTP method (Turbo), %>
+        <% # and includes a JavaScript confirmation dialog before deletion using 'turbo_confirm'. %>
         <%= link_to task_path(task), class: 'delete-link',
             data: {
               turbo_method: :delete,
               turbo_confirm: "Êtes-vous sûr de vouloir supprimer '#{task.title}' ?"
             } do %>
+          <% # Displays a Font Awesome trash can icon, colored red, within the delete link. %>
           <i class="fas fa-trash text-danger"></i>
         <% end %>
       </div>
